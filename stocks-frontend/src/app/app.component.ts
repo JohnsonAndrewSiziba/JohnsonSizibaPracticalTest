@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {StocksService} from "./services/stocks/stocks.service";
 import {StockDto} from "./interfaces/dtos/stock-dto";
 import {StockValuesDto} from "./interfaces/dtos/stock-values-dto";
+import {StockValuesDownloadDto} from "./interfaces/dtos/stock-values-download-dto";
+import {DateFormatPipe} from "./pipes/date-format.pipe";
 
 @Component({
   selector: 'app-root',
@@ -74,10 +76,28 @@ export class AppComponent {
   }
 
   exportValuesAsJson() {
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.selectedStockValuesList));
+
+
+    const stockValuesDownloadDtoList: StockValuesDownloadDto[] = this.selectedStockValuesList.map(
+      ({ stockId, date, value }) => {
+        const dateObject = new Date(date);
+        return {
+          stockId,
+          stock: this.selectedStock?.stock,
+          date: dateObject.toLocaleDateString('en-US', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          }),
+          value,
+        };
+      }
+    );
+
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(stockValuesDownloadDtoList));
     const downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href",     dataStr);
-    downloadAnchorNode.setAttribute("download", "export.json");
+    downloadAnchorNode.setAttribute("download", this.selectedStock?.stock + ".json");
     document.body.appendChild(downloadAnchorNode);
     downloadAnchorNode.click();
     downloadAnchorNode.remove();

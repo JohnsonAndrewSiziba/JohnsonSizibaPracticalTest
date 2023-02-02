@@ -1,6 +1,6 @@
 export interface StockValuesDownloadDto {
   stockId: number;
-  stock: string;
-  date: Date;
+  stock?: string;
+  date: string;
   value: number;
 }

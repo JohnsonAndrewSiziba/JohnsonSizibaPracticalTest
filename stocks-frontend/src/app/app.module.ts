@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import { FilterStocksPipe } from './pipes/filter-stocks.pipe';
 
 import { OrderModule } from 'ngx-order-pipe';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OrderModule } from 'ngx-order-pipe';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    OrderModule
+    OrderModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
