@@ -1,0 +1,106 @@
+<div class="container">
+
+  <div class="table-container stocks-table">
+    <div class="table-heading">
+      <h2 class="table-title">Stocks</h2>
+    </div>
+    <div class="table-content">
+      <table class="stocks-table">
+        <thead>
+        <tr>
+          <th (click)="stocksListSort('stock')">
+            <div class="th-content">
+              <span class="name">Stock</span>
+              <i class='bx bx-sort-alt-2'></i>
+            </div>
+          </th>
+          <th (click)="stocksListSort('industry')">
+            <div class="th-content">
+              <span class="name">Industry</span>
+              <i class='bx bx-sort-alt-2'></i>
+            </div>
+          </th>
+          <th (click)="stocksListSort('sector')">
+            <div class="th-content">
+              <span class="name">Sector</span>
+              <i class='bx bx-sort-alt-2'></i>
+            </div>
+          </th>
+          <th (click)="stocksListSort('currencyCode')">
+            <div class="th-content">
+              <span class="name">Currency Code</span>
+              <i class='bx bx-sort-alt-2'></i>
+            </div>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="4">
+               <div class="search-input-container">
+                 <i class='bx bx-search' ></i>
+                 <input type="text" placeholder="Search" [(ngModel)]="searchTerm" (input)="updateSearchTerm($event)">
+               </div>
+            </td>
+          </tr>
+          <tr *ngFor="let stock of stocksList | filterStocks: searchTerm | orderBy:stocksListOrder:stocksListOrderReverse" (click)="selectStock(stock)">
+              <td>{{ stock.stock }}</td>
+              <td>{{ stock.industry }}</td>
+              <td>{{ stock.sector }}</td>
+              <td>{{ stock.currencyCode }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="table-container details-table">
+    <div class="table-heading">
+      <h2 class="table-title">{{ selectedStock?.stock }}</h2>
+    </div>
+
+    <div class="table-content">
+      <table class="details-table">
+        <thead>
+        <tr>
+          <th>
+            <div class="th-content">
+              <span class="name">Stock</span>
+              <i class='bx bx-sort-alt-2'></i>
+            </div>
+          </th>
+          <th (click)="stockValuesSort('date')">
+            <div class="th-content">
+              <span class="name">Date</span>
+              <i class='bx bx-sort-alt-2'></i>
+            </div>
+          </th>
+          <th (click)="stockValuesSort('value')">
+            <div class="th-content">
+              <span class="name">Value</span>
+              <i class='bx bx-sort-alt-2'></i>
+            </div>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let values of selectedStockValuesList | orderBy:stockValuesOrder:stockValuesOrderReverse">
+            <td>
+              {{ selectedStock?.stock }}
+            </td>
+            <td>
+              {{ values.date | dateFormat}}
+            </td>
+            <td>
+              {{ values.value | decimalFormat }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footer">
+      <button (click)="exportTableContantsAsJson()">Export as JSON</button>
+    </div>
+  </div>
+
+</div>

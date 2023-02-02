@@ -1,0 +1,82 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 90%;
+  }
+}
+
+.table-container {
+  background: var(--clr-white);
+  padding: var(--padding-01);
+  border-radius: 3px;
+
+  .table-heading {
+    display: flex;
+    justify-content: center;
+
+    h2.table-title {
+      font-weight: 600;
+      font-size: 27px;
+      color: var(--clr-text-table-title);
+    }
+
+  }
+
+  .table-content {
+
+    table {
+      width: 100%;
+      border-spacing: 0;
+      thead {
+        background: var(--clr-bg-table-header);
+        padding: 20px 10px;
+        th {
+          font-size: 18px;
+          font-weight: 400;
+          border: none !important;
+          margin: 0;
+          padding: 0;
+          .th-content {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+.search-input-container {
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 4px;
+  border: 1px solid var(--clr-white);
+  input {
+    flex-grow: 1;
+    font-size: 14px;
+    padding: 5px;
+    border: none;
+    outline: none;
+  }
+  &:has(input:focus){
+    border: 1px solid var(--clr-bg-main);
+
+  }
+}

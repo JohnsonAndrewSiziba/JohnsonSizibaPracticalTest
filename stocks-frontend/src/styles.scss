@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import '~boxicons/css/boxicons.min.css';
+
+
+:root {
+  --clr-bg-main: #E4E4E4;
+  --clr-bg-table-header: #C6E1F3;
+  --clr-text-table-header: #94C0E2;
+  --clr-text-table-title: #1E4C71;
+  --clr-white: #ffffff;
+  --clr-bg-btn: #049CD4;
+  --clr-text-btn: #CBE7F4;
+  --clr-text-gray: #969CAB;
+  --clr-text-silver: #A6A4A4;
+  --clr-text-tapa: #737372;
+
+  --padding-01: 10px;
+
+  --transition: all 250ms ease-in-out;
+}
+
+/*Reset*/
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+
+body {
+  background: var(--clr-bg-main);
+  padding: var(--padding-01) 0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--clr-text-tapa);
+}
