@@ -3,7 +3,6 @@ import {StocksService} from "./services/stocks/stocks.service";
 import {StockDto} from "./interfaces/dtos/stock-dto";
 import {StockValuesDto} from "./interfaces/dtos/stock-values-dto";
 import {StockValuesDownloadDto} from "./interfaces/dtos/stock-values-download-dto";
-import {DateFormatPipe} from "./pipes/date-format.pipe";
 
 @Component({
   selector: 'app-root',
@@ -76,8 +75,6 @@ export class AppComponent {
   }
 
   exportValuesAsJson() {
-
-
     const stockValuesDownloadDtoList: StockValuesDownloadDto[] = this.selectedStockValuesList.map(
       ({ stockId, date, value }) => {
         const dateObject = new Date(date);
