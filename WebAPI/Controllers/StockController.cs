@@ -30,11 +30,6 @@ public class StockController : ControllerBase
     public async Task<ActionResult<IEnumerable<StockModel>>> GetStocks()
     {
         var stocks = await _repository.GetAllStocks();
-        // print all stocks
-        foreach (var stock in stocks)
-        {
-            System.Console.WriteLine(stock.Stock);
-        }
         return Ok(stocks);
     }
     
