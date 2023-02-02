@@ -140,3 +140,29 @@
 .selected-row {
   background: var(--clr-table-hover);
 }
+
+//code for custom scrollbar
+
+$scrollbar-width: 5px;
+$scrollbar-background: #E4E4E4;
+$scrollbar-thumb-background: #94C0E2;
+$scrollbar-thumb-hover-background: #ECECEC;
+$scrollbar-thumb-radius: 10px;
+
+// Custom styles for the scrollbar
+.table-content {
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+    background-color: $scrollbar-background;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-thumb-background;
+    border-radius: $scrollbar-thumb-radius;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $scrollbar-thumb-hover-background;
+  }
+}
+
