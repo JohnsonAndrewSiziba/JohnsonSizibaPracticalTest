@@ -25,8 +25,8 @@
     justify-content: center;
 
     h2.table-title {
-      font-weight: 600;
-      font-size: 27px;
+      font-weight: 500;
+      font-size: 24px;
       color: var(--clr-text-table-title);
     }
 
@@ -49,11 +49,13 @@
           font-weight: 400;
           border: none !important;
           padding: 5px;
+          transition: var(--transition);
           .th-content {
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 3px;
+            justify-content: space-between;
           }
         }
       }
@@ -121,4 +123,20 @@
       background: var(--clr-bg-main-hover);
     }
   }
+}
+
+.sort-column {
+  background: var(--clr-bg-btn);
+  color: var(--clr-white);
+
+  &.sort-reverse{
+    i {
+      transform: rotate(180deg);
+    }
+  }
+
+}
+
+.selected-row {
+  background: var(--clr-table-hover);
 }

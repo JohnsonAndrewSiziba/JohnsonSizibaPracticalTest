@@ -23,9 +23,6 @@ export class AppComponent {
   stockValuesOrder = 'date';
   stockValuesOrderReverse = false;
 
-
-
-
   constructor(private stocksService: StocksService) {
 
   }

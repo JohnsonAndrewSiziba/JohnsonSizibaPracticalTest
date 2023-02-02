@@ -8,34 +8,34 @@
       <table class="stocks-table">
         <thead>
         <tr>
-          <th (click)="stocksListSort('stock')">
+          <th (click)="stocksListSort('stock')" [ngClass]="{'sort-column': (stocksListOrder == 'stock'), 'sort-reverse': stocksListOrderReverse}">
             <div class="th-content">
               <span class="name">Stock</span>
-              <i class='bx bx-sort-alt-2'></i>
+              <i class='bx bxs-up-arrow' ></i>
             </div>
           </th>
-          <th (click)="stocksListSort('industry')">
+          <th (click)="stocksListSort('industry')" [ngClass]="{'sort-column': (stocksListOrder == 'industry'), 'sort-reverse': stocksListOrderReverse}">
             <div class="th-content">
               <span class="name">Industry</span>
-              <i class='bx bx-sort-alt-2'></i>
+              <i class='bx bxs-up-arrow' ></i>
             </div>
           </th>
-          <th (click)="stocksListSort('sector')">
+          <th (click)="stocksListSort('sector')" [ngClass]="{'sort-column': (stocksListOrder == 'sector'), 'sort-reverse': stocksListOrderReverse}">
             <div class="th-content">
               <span class="name">Sector</span>
-              <i class='bx bx-sort-alt-2'></i>
+              <i class='bx bxs-up-arrow' ></i>
             </div>
           </th>
-          <th (click)="stocksListSort('currencyCode')">
+          <th (click)="stocksListSort('currencyCode')" [ngClass]="{'sort-column': (stocksListOrder == 'currencyCode'), 'sort-reverse': stocksListOrderReverse}">
             <div class="th-content">
               <span class="name">Currency Code</span>
-              <i class='bx bx-sort-alt-2'></i>
+              <i class='bx bxs-up-arrow' ></i>
             </div>
           </th>
         </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr [ngClass]="{'selected-stock': (stocksListOrder == 'stock')}">
             <td colspan="4">
                <div class="search-input-container">
                  <i class='bx bx-search' ></i>
@@ -43,7 +43,7 @@
                </div>
             </td>
           </tr>
-          <tr *ngFor="let stock of stocksList | filterStocks: searchTerm | orderBy:stocksListOrder:stocksListOrderReverse" (click)="selectStock(stock)" class="data-row">
+          <tr *ngFor="let stock of stocksList | filterStocks: searchTerm | orderBy:stocksListOrder:stocksListOrderReverse" (click)="selectStock(stock)" class="data-row" [ngClass]="{'selected-row': stock.id == selectedStock?.id }">
               <td>{{ stock.stock }}</td>
               <td>{{ stock.industry }}</td>
               <td>{{ stock.sector }}</td>
@@ -68,16 +68,16 @@
               <span class="name">Stock</span>
             </div>
           </th>
-          <th (click)="stockValuesSort('date')">
+          <th (click)="stockValuesSort('date')" [ngClass]="{'sort-column': (stockValuesOrder == 'date'), 'sort-reverse': stockValuesOrderReverse}">
             <div class="th-content">
               <span class="name">Date</span>
-              <i class='bx bx-sort-alt-2'></i>
+              <i class='bx bxs-up-arrow' ></i>
             </div>
           </th>
-          <th (click)="stockValuesSort('value')">
+          <th (click)="stockValuesSort('value')" [ngClass]="{'sort-column': (stockValuesOrder == 'value'), 'sort-reverse': stockValuesOrderReverse}">
             <div class="th-content">
               <span class="name">Value</span>
-              <i class='bx bx-sort-alt-2'></i>
+              <i class='bx bxs-up-arrow' ></i>
             </div>
           </th>
         </tr>
