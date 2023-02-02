@@ -1,4 +1,4 @@
-# Quintessence Practical estTest
+# Quintessence Practical Test
 This project has a web API built with .NET and an Angular frontend.
 
 ## Prerequisites
