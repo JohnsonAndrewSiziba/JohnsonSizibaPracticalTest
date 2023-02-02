@@ -13,10 +13,6 @@ export class StocksService {
 
   constructor(private http: HttpClient, private errorsService: ErrorsService) { }
 
-  // endpoints
-
-
-  // get all stocks from the server
   getStocks(): Observable<StockDto[]> {
     return this.http.get<StockDto[]>(serverUrl)
       .pipe(
@@ -25,7 +21,6 @@ export class StocksService {
       );
   }
 
-  // get stock details by stock id
   getStockValuesByStockId(id: number): Observable<StockValuesDto[]> {
     return this.http.get<StockValuesDto[]>(serverUrl + "/" + id + "/values")
       .pipe(

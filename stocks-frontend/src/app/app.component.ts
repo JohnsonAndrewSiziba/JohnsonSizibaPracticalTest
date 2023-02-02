@@ -76,9 +76,7 @@ export class AppComponent {
     this.getStockValuesByStockId(stock.id);
   }
 
-  // download selected values as json file with the name export.json
   exportValuesAsJson() {
-
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.selectedStockValuesList));
     const downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href",     dataStr);

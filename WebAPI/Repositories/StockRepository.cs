@@ -3,7 +3,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Repositories;
 
-public class StockRepository
+public class StockRepository: IStockRepository
 {
     private List<StockModel> _stocks;
     private List<StockValue> _stockValues;

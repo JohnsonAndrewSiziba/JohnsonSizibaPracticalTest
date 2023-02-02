@@ -34,24 +34,46 @@
 
   .table-content {
 
+    height: 37vh;
+    overflow-y: auto;
+
     table {
       width: 100%;
       border-spacing: 0;
       thead {
         background: var(--clr-bg-table-header);
         padding: 20px 10px;
+        border-radius: 4px;
         th {
-          font-size: 18px;
+          font-size: 15px;
           font-weight: 400;
           border: none !important;
-          margin: 0;
-          padding: 0;
+          padding: 5px;
           .th-content {
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 3px;
           }
+        }
+      }
+      tbody {
+        tr {
+          cursor: pointer;
+          padding: 8px 5px;
+          td {
+            border-bottom: 1px dotted var(--clr-bg-main);
+          }
+          &.data-row:hover {
+            background: var(--clr-table-hover);
+          }
+
+          td {
+            padding: 5px;
+            font-size: 13px;
+            font-weight: 300;
+          }
+
         }
       }
     }
@@ -77,6 +99,26 @@
   }
   &:has(input:focus){
     border: 1px solid var(--clr-bg-main);
+  }
+}
 
+.table-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 10px;
+  margin-top: 10px;
+  button {
+    padding: var(--padding-01);
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: var(--clr-bg-btn);
+    color: var(--clr-text-btn);
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+    &:hover {
+      background: var(--clr-bg-main-hover);
+    }
   }
 }
